@@ -2,7 +2,7 @@ const matchInit = function (ctx: nkruntime.Context, logger: nkruntime.Logger, nk
     return {
         state: { presences: {}, emptyTicks: 0 },
         // tickrate 5 ticks/s
-        tickRate: 5, 
+        tickRate: 5,
         label: "",
     };
 }
@@ -63,3 +63,5 @@ const matchTerminate = function (ctx: nkruntime.Context, logger: nkruntime.Logge
         state,
     };
 }
+
+export { matchInit, matchJoinAttempt, matchJoin, matchLeave, matchLoop, matchSignal, matchTerminate};

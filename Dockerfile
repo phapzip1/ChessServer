@@ -5,9 +5,8 @@ WORKDIR /backend
 COPY package*.json .
 RUN npm install
 
-COPY tsconfig.json .
-ADD src ./src
-RUN npx tsc
+COPY . .
+RUN npm run build
 
 FROM registry.heroiclabs.com/heroiclabs/nakama:3.17.1
 

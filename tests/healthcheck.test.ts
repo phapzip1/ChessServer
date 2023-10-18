@@ -1,7 +1,7 @@
 import { createMock } from 'ts-auto-mock';
 import { On, method } from 'ts-auto-mock/extension';
-import rpcHealthCheck from "../src/healthcheck";
 import { describe, expect, beforeEach, test } from '@jest/globals';
+import rpcHealthCheck from "../src/healthcheck";
 
 describe("rpcHealthCheck", function () {
     let mockCtx: any, mockLogger: any, mockNk: any, mockLoggerError: any, mockNkStorageRead: any, mockNkStorageWrite: any, mockStorageWriteAck: any;
