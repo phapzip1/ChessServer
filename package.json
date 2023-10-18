@@ -40,7 +40,7 @@
       ".(ts|tsx)": "ts-jest"
     },
     "setupFiles": [
-      "./jest-config.ts"
+      "<rootDir>/jest-config.ts"
     ]
   },
   "dependencies": {
