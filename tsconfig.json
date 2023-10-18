@@ -1,0 +1,25 @@
+{
+    "files": [
+        "src/main.ts",
+        "src/healthcheck.ts",
+        "src/matchhandler.ts"
+    ],
+    "compilerOptions": {
+        "target": "ES5",
+        "typeRoots": [
+            "./node_modules"
+        ],
+        "module": "amd",
+        "plugins": [
+            {
+                "transform": "ts-auto-mock/transformer",
+                "cacheBetweenTests": false
+            }
+        ],
+        "outFile": "./build/index.js",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    }
+}
