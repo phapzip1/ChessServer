@@ -37,3 +37,4 @@ jobs:
           context: .
           push: true
           tags: phapzip1/chess:latest
+  
