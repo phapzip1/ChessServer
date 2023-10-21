@@ -28,11 +28,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-        cd ~/dev/ChessServer
-        git pull origin master
-        git status
-        npm i
-        npm run build
-        sudo cp -pf ./build/index.js /data/modules
-        sudo systemctl daemon-reload
-        sudo systemctl restart nakama
+          cd ~/dev/ChessServer
+          git pull origin master
+          git status
+          npm i
+          npm run build
+          sudo cp -pf ./build/index.js /data/modules
+          sudo systemctl daemon-reload
+          sudo systemctl restart nakama
