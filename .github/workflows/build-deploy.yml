@@ -31,6 +31,7 @@ jobs:
         script: |
           cd ~/dev/ChessServer
           eval $(ssh-agent -s)
+          ssh-add ~/.ssh/chess
           git pull origin master
           git status
           npm i
