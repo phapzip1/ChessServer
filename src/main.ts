@@ -6,11 +6,13 @@ import {
     matchLeave,
     matchLoop,
     matchSignal,
-    matchTerminate
+    matchTerminate,
+    matchCreate
 } from "./matchhandler";
 
 function InitModule(ctx: nkruntime.Context, logger: nkruntime.Logger, nk: nkruntime.Nakama, initializer: nkruntime.Initializer) {
-    initializer.registerRpc("heathcheck", rpcHealthCheck);
+    initializer.registerRpc("Heathcheck", rpcHealthCheck);
+    initializer.registerRpc("CreateMatch", matchCreate);
     initializer.registerMatch("lobby", {
         matchInit,
         matchJoinAttempt,

@@ -64,4 +64,9 @@ const matchTerminate = function (ctx: nkruntime.Context, logger: nkruntime.Logge
     };
 }
 
-export { matchInit, matchJoinAttempt, matchJoin, matchLeave, matchLoop, matchSignal, matchTerminate};
+const matchCreate = function rpcCreateMatch(context: nkruntime.Context, logger: nkruntime.Logger, nk: nkruntime.Nakama, payload: string) : string {
+    const matchId = nk.matchCreate("chess", {payload});
+    return JSON.stringify({matchId: matchId});
+}
+
+export { matchInit, matchJoinAttempt, matchJoin, matchLeave, matchLoop, matchSignal, matchTerminate, matchCreate};
