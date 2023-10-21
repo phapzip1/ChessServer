@@ -1,5 +1,5 @@
 function rpcHealthCheck(ctx: nkruntime.Context, logger: nkruntime.Logger, nk: nkruntime.Nakama, payload: string) {
-    logger.info("Healthcheck RPC loaded");
+    logger.debug("Healthcheck RPC loaded");
     return JSON.stringify({
         healthcheck: "OK",
     });
