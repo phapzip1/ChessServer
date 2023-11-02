@@ -2,6 +2,7 @@ import "dart:async";
 import "dart:io";
 import "dart:typed_data";
 
+import "../../utils/logger.dart";
 import "../authentication/auth.dart";
 import "message.dart";
 
@@ -53,11 +54,12 @@ class Connection {
           msg = PingMsg();
           break;
         default:
-          throw Exception();
+          Logger.error("Message Error");
+          return;
       }
       onMessageReceived(this, msg);
     } else {
-      throw Exception();
+      Logger.error("Message Error");
     }
   }
 
