@@ -1,7 +1,6 @@
 import "dart:async";
 import "dart:io";
 
-
 import "../../sys/networking/connection.dart";
 import '../../utils/logger.dart';
 import "message.dart";
@@ -30,21 +29,18 @@ class Network {
   final List<Connection> _temp;
   int _id;
 
-
   Future<void> _start() async {
     final server = await ServerSocket.bind(InternetAddress.anyIPv4, _port);
-    server.listen(_dispatcher);
+    server.listen(_dispatcher, onError: (Object err, StackTrace trace) {
+      Logger.error("Server error");
+      Logger.error(trace.toString());
+    });
     Logger.info("TCP Server started at $_port!❤️");
   }
 
   void _dispatcher(Socket socket) {
     final connection = Connection(
-      socket,
-      _id++,
-      _onMessage,
-      _onClientDisconnected,
-      _onClientConnected
-    );
+        socket, _id++, _onMessage, _onClientDisconnected, _onClientConnected);
 
     _temp.add(connection);
   }
@@ -56,9 +52,7 @@ class Network {
   }
 
   void _onMessage(Connection con, Message msg) {
-    if (msg is PingMsg) {
-
-    }
+    if (msg is PingMsg) {}
   }
 
   void _onClientDisconnected(Connection con, String reason) {
@@ -66,11 +60,7 @@ class Network {
     _temp.remove(con);
   }
 
-  void messageClient() {
-    
-  }
+  void messageClient() {}
 
-  void messageToAll() {
-
-  }
+  void messageToAll() {}
 }

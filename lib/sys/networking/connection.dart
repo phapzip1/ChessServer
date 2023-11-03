@@ -29,6 +29,10 @@ class Connection {
           onClientDisconnected(this, "Client closed connection");
         }
       },
+      onError: (Object err, StackTrace trace) {
+        Logger.error("Socket error [$id]");
+        Logger.error(trace.toString());
+      }
     );
     _timer = Timer(const Duration(seconds: 3), () {
       socket.destroy();
